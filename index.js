@@ -1,4 +1,4 @@
-var alphabet = ['A', "B", "C", 'D', "E", "F", "G", "H", "I", "J", 'K', 'L', 'M', "N", "O", "P", `Q`, `R`, `S`, "T", "U", "V", "W", "X", "Y", "Z"]
+var alphabet = ['A', "B", "C", 'D', "E", "F", "G", "H", "I", "J", 'K', 'L', 'M', "N", "O", "P", `Q`, `R`, `S`, "T", "U", "V", "W", "X", "Y", "Z"] // the best solution. Truly.
 var randomPossiblyFakeQuoteIGoogledJustForThis = "Two things are infinite: the universe and human stupidity; and I'm not sure about the universe."
 var fs = require('fs')
 const readline = require('readline');
@@ -8,7 +8,7 @@ function askQuestion(query) { // Yeah, I've just straight copied it from StackOv
 	const niceties = "user@Deep-Thought.local ~>  question"
 	console.log()
 	console.log(niceties)
-	console.log('Process PID: ' + process.pid) // So i know which bad boy to kill later, when I am bored
+	console.log('Process PID: ' + process.pid) // So i know which bad boy to kill later, when I am bored from endless stream pausing and unpausing
 	console.log('Loading...')
 	setTimeout(() => {
 		console.log()
@@ -16,7 +16,6 @@ function askQuestion(query) { // Yeah, I've just straight copied it from StackOv
     	    input: process.stdin,
     	    output: process.stdout,
     	});
-
     	rl.question(query, ans => {
     	    rl.close();
     	    resolve(ans);
@@ -25,19 +24,15 @@ function askQuestion(query) { // Yeah, I've just straight copied it from StackOv
 	})
 }
 
-function wordCorrecter(str, num) {
-    // you can comment this line
+function wordCorrecter(str, num) { // stole from stack, 12 liines are way too much for me
     str = str.toLowerCase();
-
     var result = '';
     var charcode = 0;
-
     for (var i = 0; i < str.length; i++) {
         charcode = (str[i].charCodeAt()) + num;
         result += String.fromCharCode(charcode);
     }
     return result;
-
 }
 
 async function THE_SHIT() {  // Yeah, i do not follow camelCase convention here
@@ -55,6 +50,7 @@ function life_universe_everything(inp, callback) { //i do not follow camelCase c
 		var bookStream = fs.createReadStream(path.resolve('./book.txt'), { highWaterMark: 1024 }) // only 1024 bytes at a time, see line 10. Original 128 bytes were considered to be too evil
 		
 		//Don't worry, Deep Thought ALSO needed some time to think ;)
+		// Seriously, though, change highWaterMark to something bigger or it will REALLY take a long time. Especially since War and Peace is big.
 
 		bookStream.on('data', (chunk) => {
 			console.log(`Received ${chunk.length} bytes of data.`);
@@ -105,8 +101,7 @@ function life_universe_everything(inp, callback) { //i do not follow camelCase c
 				}
 			}
 			else {
-				goodLetterNumberOne = alphabet[l2n('F')-3]
-				goodLetterNumberTwo = alphabet[l2n('x') - 23]
+				goodLetterNumberOne = alphabet[l2n('F')-3]; goodLetterNumberTwo = alphabet[l2n('x') - 23]
 			}
 			var numBears = [l2n(goodLetterNumberOne), l2n(goodLetterNumberTwo)]
 			numbers = numBears.join() // thanks God I don't 'use strict' mode. Otherwise the code would error out. Well, I am evil, this should not matter in any case
